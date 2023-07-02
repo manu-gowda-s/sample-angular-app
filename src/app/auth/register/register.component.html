@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="bg-gray-200">
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="max-w-md w-full">
+            <h1 class="text-center text-2xl font-bold mb-6">New User Register here!!</h1>
+            <form (ngSubmit)="submit()" #myForm="ngForm" 
+            class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div class="m-5 w-full">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    placeholder="Email Address" [(ngModel)]="form.email" name="email"
+                    #email="ngModel" required>
+                </div>
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="px-3 bg-gray-200 text-red-700 rounded">
+                    Email Field Must Be Vaild
+                </div>
+                <div class="m-5 w-full">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                    placeholder="Password" [(ngModel)]="form.password" name="password"
+                    #password="ngModel" required>
+                </div>
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="px-3 bg-gray-200 text-red-700 rounded">
+                    Enter Correct Password
+                </div>
+                <div class="m-5 w-full">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="confirmPassword" id="confirmPassword" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                    placeholder="Confirm Password" [(ngModel)]="form.confirmPassword" name="confirmPassword">
+                </div>
+                <div class="m-5 w-full">
+                    <input type="submit" 
+                    [disabled]="myForm.form.invalid" 
+                    class="p-2 w-full bg-purple-700 text-white hover:bg-purple-700 rounded">
+                </div>    
+            </form>
+            <p class="text-center text-gray-500 text-xs">
+                &copy; 2023 Hobbs Store. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

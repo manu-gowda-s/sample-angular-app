@@ -1,0 +1,11 @@
+<div class="container mx-auto py-8">
+    <h2 class="text-3xl font-bold mb-4">Programming Books List!!</h2>
+
+    <ul *ngIf="isShowing" class="list-disc list-inside">
+        <ng-container *ngFor="let singleBook of allBooks; let i=index">
+            <li class="my-4">
+                <app-book [book]="singleBook"></app-book>
+            </li>
+        </ng-container>
+    </ul>
+</div>

@@ -1,0 +1,14 @@
+<body class="bg-gray-200">
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-bold mb-4">Your Cart!</h1>
+
+        <div *ngIf="getCart().length > 0">
+            <div *ngFor="let book of getCart()" class="bg-white rounded p-4 my-2">
+                <p class="text-xl">{{ book.name }}</p>
+                <p class="text-gray-500">Rs {{ book.ammount }}</p>
+            </div>
+        </div>
+
+        <div *ngIf="getCart().length == 0" class="text-gray-500 text-center mt-8">No items in cart</div>
+    </div>
+</body>

@@ -1,0 +1,11 @@
+<!-- this li is comming from parent data -->
+<li class="book flex items-center p-4 bg-white rounded shadow">
+    <img class="w-16 h-16 mr-4" [src]="book.image" [alt]="book.name">
+    <div class="flex-1">
+        <p class="text-xl font-bold">{{book.name | titlecase}}</p>
+        <p class="text-sm">{{book.author | titlecase}}</p>
+        <p class="text-gray-500">{{book.ammount | currency: 'INR'}}</p>
+    </div>
+    <button class="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" *ngIf="!isIntheCart" (click)="addToCart()">Add to Cart</button>
+    <button class="ml-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" *ngIf="isIntheCart" (click)="removeFromCart()">Remove From Cart</button>
+</li>
